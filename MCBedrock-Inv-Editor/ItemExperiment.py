@@ -1,4 +1,3 @@
-import string
 from leveldb import LevelDB
 import amulet_nbt
 from amulet_nbt import utf8_escape_decoder
@@ -22,34 +21,29 @@ for i in db.keys():
 print(f"Total keys: {numKeys}")
 
 
-""" iterator.seek(b'actorprefix')
-
-nbt = amulet_nbt.load(iterator.value(), little_endian=True, string_decoder=utf8_escape_decoder)
-
-print_nbt(nbt) """
-
-
-# Dictionary to hold all actorprefix values FORMAT: entityType:count
+# Dictionary to hold all actorprefix values FORMAT: name:count
 allEntities = {}
-
-""" # Loop through every actorprefix key value pair
-for(key, value) in db.iterate(start=b"actorprefix", end=b"actorprefix\xff"):  
-    print(f"key: {key} , Value len: {len(value)}") """
 
 for(key, value) in db.iterate(start=b"actorprefix", end=b"actorprefix\xff"): # Loop through all keys that start with actorprefix 0 \xff allows for characters after actorprefix
     nbt = amulet_nbt.load(value, little_endian=True, string_decoder=utf8_escape_decoder) # Load the nbt from the value
     nbt.compound # Convert into object so can reference specific parts of the nbt - reference with nbt["name"] eg: nbt["identifier"].
 
-    entityType = str(nbt["identifier"])
+    entityType = str(nbt["identifier"]) # Get the entitys identifier data
 
     # Count total of each entity type
-    if entityType in allEntities:
-        allEntities[entityType] += 1
+    if entityType == "minecraft:item":
+        itemObj = nbt["Item"]
+        if "Block" in itemObj:
+            id = f"{str(nbt['Item']['Block']['name'])}"
+        else:
+            id = f"{str(nbt['Item']['Name'])}"
+
+    if id in allEntities:
+        allEntities[id] += 1
     else:
-        allEntities[entityType] = 1
+        allEntities[id] = 1
+        
+for (key, value) in allEntities.items():
+    print(f"{key} : {value}") # key is name, value is count of that entity type
 
-print(allEntities)
-    
-
-
-    
+# the end result of this program should output all of the dropped items and their counts in the world.
