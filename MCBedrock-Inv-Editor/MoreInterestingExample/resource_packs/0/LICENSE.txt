@@ -1,0 +1,12 @@
+© 2025 FeRaSs1454
+=======================
+You are allowed to:
+share this pack on social media 
+edit & change pack textures if you dont like default textures
+use this pack on your maps
+make review about this pack (put mcpedl, curseforge, planetminecraft link on your description)
+=======================
+You are NOT allowed to:
+steal this pack and say it's yours
+change uuid and name and description on manifest.json without permission
+use pack files and codes on your packs

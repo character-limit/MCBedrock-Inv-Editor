@@ -1,0 +1,30 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "Every villager trade is visible from level 1. Trading Plus and Quick Trading are NOT included in this pack. You must download them separately from bedrocktweaks.net",
+    "name": "All Trades Visible",
+    "uuid": "129db57d-3dcb-22e9-a210-d563bd782e83",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      16,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "description": "",
+      "type": "resources",
+      "uuid": "217dc706-3dca-12e9-b210-d663ed874d83",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}

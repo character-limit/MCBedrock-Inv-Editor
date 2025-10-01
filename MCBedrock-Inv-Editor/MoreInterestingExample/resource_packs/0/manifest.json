@@ -1,0 +1,53 @@
+//This JSON was modified by FeRaSs1454 (@ferass1454 on Discord). Please do not use this document without permission.
+{
+  "format_version": 2,
+  "header": {
+    "description": "A resource pack that will make glass clear!§r\nv1.0.1\nBy §aFeRaSs1454",
+    "name": "Borderless §bGlass§r",
+    "uuid": "f3da40be-8f4f-11ec-b004-0342ac470006",
+    "version": [
+      1,
+      0,
+      1
+    ],
+    "min_engine_version": [
+      1,
+      17,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "description": "More Packs §ahttps://mcpedl.com/user/ferass1454",
+      "type": "resources",
+      "uuid": "f4da43a2-8f4f-11ec-b909-0242ac120002",
+      "version": [
+        5,
+        0,
+        1
+      ]
+    }
+  ],
+  "subpacks": [
+    {
+      "folder_name": "clear_rtx",
+      "name": "Clear & Borderless Glass with RTX",
+      "memory_tier": 1
+    },
+    {
+      "folder_name": "rtx",
+      "name": "Borderless Glass with RTX",
+      "memory_tier": 1
+    },
+    {
+      "folder_name": "clear",
+      "name": "Clear & Borderless Glass",
+      "memory_tier": 1
+    },
+    {
+      "folder_name": "default",
+      "name": "Borderless Glass",
+      "memory_tier": 1
+    }
+  ]
+}
