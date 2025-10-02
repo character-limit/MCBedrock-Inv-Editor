@@ -3,8 +3,8 @@ import amulet_nbt
 from amulet_nbt import utf8_escape_decoder
 
 # Initialise DB folder in world file to leveldb
-db_filename="sampleworld/db"
-db = LevelDB(db_filename)
+db_filename="ExampleWorld/db"
+db = LevelDB(db_filename, create_if_missing=False)
 
 # Print nbt but pretty function
 def print_nbt(nbt):

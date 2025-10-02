@@ -74,6 +74,8 @@ for key in db.keys():
 
 nbt = amulet_nbt.load(db[b"player_server_18672b95-daa0-4f02-9286-88428fa48a5c"], little_endian=True, string_decoder=utf8_escape_decoder).compound
 
+db.close()
+
 #print_nbt(nbt)
         
 # complete example for showing local player data, other remote players, and their data.
