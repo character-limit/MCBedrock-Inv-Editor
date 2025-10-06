@@ -13,7 +13,7 @@ def print_nbt(nbt):
     if isinstance(nbt, (TAG_List, TAG_Compound)):
         print(nbt.to_snbt(indent=4))
     else:
-        print(nbt)  # for Python primitives like int, str, float
+        print(nbt) 
 
 # Init iterator for db
 iterator = db.new_iterator()
@@ -49,25 +49,41 @@ def showPlayerData(playerKey):
     if selection == -1:
         showPlayers()
     else:   
-        showTagValue(nbt, tempArrayOfTags[selection], playerKey)
+        showTagCompoundValue(nbt, tempArrayOfTags[selection], playerKey)
 
-def showTagValue(nbt, tagName, playerKey):
+def showTagCompoundValue(nbt, tagName, playerKey):
     os.system('cls' if os.name == 'nt' else 'clear')
 
     print(f"Showing data for tag: {tagName}")
 
-    tag_value = nbt[tagName]
+    tagValue = nbt[tagName]
     
-    if isinstance(tag_value, (TAG_Compound, TAG_List)):
-        for i in tag_value:
+    if isinstance(tagValue, (TAG_List)):
+        for i in tagValue:
             print_nbt(i) 
+    elif isinstance(tagValue, (TAG_Compound)):
+        selectTagCompoundValue(tagValue, playerKey)
     else:
-        print_nbt(tag_value)
+        print_nbt(tagValue)
 
     selection = int(input("Enter -1 to go back."))
     if selection == -1:
         showPlayerData(playerKey)
+    else:
+        showTagCompoundValue(nbt, tagName, playerKey)
+
+def selectTagCompoundValue(CompoundTagKey, playerKey):
+    tempArrayOfTags = []
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    for i, tagName in enumerate(CompoundTagKey): #compound tag is nbt
+        print(f"[{i}] : {tagName}")
+        tempArrayOfTags.append(tagName)
+
+    selection = int(input("Select a tag by number: "))
+    if selection == -1:
+        return 
     else:   
-        showTagValue(nbt, tagName, playerKey)
+        showTagCompoundValue(CompoundTagKey, tempArrayOfTags[selection], playerKey)
 
 showPlayers()
